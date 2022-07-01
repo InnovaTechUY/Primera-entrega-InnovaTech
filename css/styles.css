@@ -1,0 +1,397 @@
+html {
+    box-sizing: border-box;
+    /*Box Model*/
+
+}
+
+*,
+*:before,
+*:after {
+    /*para que al aplicarle el padding no afecte al tamaño de la imagen original*/
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Akaya Telivigala', cursive;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+/*Globales*/
+h1 {
+    font-size: 3.8rem;
+    padding: 5rem;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+svg {
+    width: 60px;
+    height: 60px;
+}
+
+textarea {
+    border: none;
+}
+
+legend {
+    text-align: center;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+span {
+    color: #07920A;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/* Contenedores y utilidades */
+
+.header {
+    background-color: #07920A !important;
+}
+
+.navbar-toggler {
+    background-color: rgb(219, 219, 219) !important;
+}
+
+@media (max-width: 600px) {
+    .navbar-toggler {
+        margin: 0 auto;
+    }
+}
+
+.logo {
+    width: 50%;
+}
+
+@media (max-width: 468px) {
+    .logo {
+        width: 60%;
+    }
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.contenedor-iconos {
+    display: block;
+    margin-top: 200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 468px) {
+    .contenedor-iconos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 20px;
+        width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .contenedor-iconos {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 20px;
+        width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contenedor-iconos {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 20px;
+        width: 70%;
+    }
+}
+
+.contenido-iconos {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    /*Dany,quita esto*/
+}
+
+.resultados {
+    margin: 50px auto;
+    width: 70%;
+}
+
+@media (min-width: 768px) {
+    .resultados {
+        margin: 50px auto;
+        width: 55%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .resultados {
+        margin: 50px auto;
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .resultados {
+        margin: 50px auto;
+        width: 30%;
+    }
+}
+
+.contenedor-suscripciones {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .contenedor-suscripciones {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+.suscripciones-duracion {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    width: 80px;
+    padding: 4px;
+    text-align: center;
+}
+
+.contenido-suscripciones {
+    margin: 20px auto;
+    height: 500px;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.suscripcion {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.suscripciones-tipo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.suscripcion-precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.suscripcion-enlace {
+    background-color: #0d99ff;
+    color: white;
+    text-transform: uppercase;
+    /*Pone el texto en mayúsculas*/
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30%;
+    padding: 3px;
+    transition: .5s;
+}
+
+.suscripcion-enlace:hover {
+    background-color: #008df1;
+    color: rgb(243, 243, 243);
+    padding: 7px;
+}
+
+/*carusel*/
+
+.carusel {
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
+    /*Los elementos que se salen del 400% no se van a visualizar*/
+}
+
+.carusel ul {
+    padding: 0;
+    display: flex;
+    /*Las imagenes se colocan una al lado de la otra*/
+    width: 400%;
+    /*Animación del carusel*/
+    animation: transicion 15s infinite;
+    /*Antes de que la imagen cambie, durará 15s en pantalla, esto se repetira infinitamente*/
+    animation-direction: alternate;
+    /*Cuando llegue al 100% vuelve a la imagen 3 y va bajando*/
+    /*Probar sacarlo, vuelve al 0% sin una transicion*/
+}
+
+.carusel li {
+    list-style: none;
+    /*Le saca el estilo de lista (el punto)*/
+    width: 100%;
+    /*espacio para las imagenes*/
+}
+
+.carusel img {
+    width: 100%;
+}
+
+@keyframes transicion {
+
+    /*Keyframes: Las propiedades que le colocamos se irán aplicando partiendo de 0% hasta llegar a 100%.*/
+    0% {
+        margin-left: 0;
+    }
+
+    20% {
+        margin-left: 0;
+    }
+
+    /*durante 4 segundos (20 * 0,2) se va a ver la primera imagen*/
+    /*El tiempo de 5% entre 20% a 25% es el tiempo que va a demorar en cambiar de imagen, es decir 1 segundo (20 * 0.05)*/
+    25% {
+        margin-left: -100%;
+    }
+
+    /*Comienza la segunda imagen*/
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    /*Comienza la tercera imagen*/
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    /*Comienza la cuarta imagen*/
+    100% {
+        margin-left: -300%;
+    }
+}
+
+/*Sobre nosotros*/
+.contenedor-nosotros {
+    display: flex;
+    width: 800px;
+    height: 120px;
+    /*Alto del contenedor*/
+    color: #07920A;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 100px;
+    /*Altura entre lineas*/
+
+    position: absolute;
+    /*para colocar en el centro la animación */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    /*sirve para ocultar todo aquel contenido que sobresalga de un contenedor, en este caso, al sobrepasar los 120px no se va a poder visualizar las palabras que esten fuera*/
+}
+
+.contenedor-nosotros ul {
+    list-style: none;
+    padding-left: 10px;
+    animation: cambio 10s infinite;
+}
+
+.contenedor-nosotros ul,
+p {
+    margin: 0;
+}
+
+@keyframes cambio {
+    0% {
+        margin-top: 100;
+    }
+
+    20% {
+        margin-top: 100;
+    }
+
+    25% {
+        margin-top: -200px;
+    }
+
+    50% {
+        margin-top: -200px;
+    }
+
+    55% {
+        margin-top: -200px;
+    }
+
+    20% {
+        margin-top: -200px;
+    }
+
+    85% {
+        margin-top: -100px;
+    }
+
+    95% {
+        margin-top: -100px;
+    }
+
+    100% {
+        margin-top: 110;
+    }
+}
+
+.boton {
+    background-color: white;
+    color: #07920A;
+    font-weight: 600;
+    border: 2px solid #07920A;
+    position: absolute;
+    bottom: 20%;
+    right: 50%;
+    font-size: 20px;
+
+}
+
+#masinformacion {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.gif-cargando {
+    position: absolute;
+    width: 200px;
+    right: 45%;
+    top: 50%;
+}
